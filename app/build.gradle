@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'io.realm.kotlin'
+    id 'com.google.devtools.ksp'
+
+
+}
+
+android {
+    namespace 'com.lis.learnrealm'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.lis.learnrealm"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt'
+    implementation 'io.realm.kotlin:library-base:1.4.0'
+
+    // Retrofit
+    def ret_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$ret_version"
+    implementation "com.squareup.retrofit2:converter-gson:$ret_version"
+
+    //glide
+    def glide_ver = "4.14.2"
+    implementation "com.github.bumptech.glide:glide:$glide_ver"
+    ksp "com.github.bumptech.glide:ksp:$glide_ver"
+
+    def lifecycle_ver = "2.5.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
+}
