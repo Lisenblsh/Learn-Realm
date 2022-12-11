@@ -1,6 +1,6 @@
 package com.lis.learnrealm.network
 
-import com.lis.learnrealm.database.CatImage
+import com.lis.learnrealm.database.Cat
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface RetrofitService {
     @GET("search?")
-    suspend fun getCatImage(@Query("limit") limit: Int?): Response<List<CatImage>>
+    suspend fun getCatImage(@Query("limit") limit: Int?): Response<List<Cat>>
 
     companion object {
         private const val BASE_URL = "https://api.thecatapi.com/v1/images/"
